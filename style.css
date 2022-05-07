@@ -1,0 +1,527 @@
+html, body {
+    position: relative;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    max-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+div[data-hidden] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+
+[data-hidden="true"] {
+    opacity: 0 !important;
+}
+[data-hidden="true"] .main-section {
+    z-index: 0;
+}
+
+[data-hidden="false"] {
+    z-index: 1;
+}
+
+[data-hidden="false"] img {
+    display: block;
+}
+
+
+[data-hidden="true"] img {
+    display: block !important;
+}
+
+[data-hidden="false"] {
+    transition: all 0.3s linear;
+}
+
+[data-animation-top="true"] > div {
+    animation: animationTop .8s ease-out;
+}
+
+[data-animation-bottom="true"] > div {
+    animation: animationBottom .8s ease-out;
+}
+
+.scroll-to-view .arrow-svg {
+    position: absolute;
+    left: 50%;
+    bottom: 180px;
+    transform: translateX(-50%);
+    animation: slide 2s ease-in;
+    animation-iteration-count: infinite;
+}
+
+.scroll-to-view span {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.preview-section {
+    width: 100%;
+    margin-top: -25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.preview-section .preview-title {
+    font-family: 'Archivo', sans-serif;
+    font-size: 36px;
+}
+
+.preview-section .preview-subtitle {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.project {
+    width: 1166px;
+    margin: 0 auto;
+    padding: 0 60px;
+    max-width: calc(100% - 120px);
+}
+
+.project-header {
+    margin-top: 140px;
+    display: flex;
+}
+
+.project-header .noblesse-logo {
+    width: 288px;
+    max-width: 100%;
+}
+
+.project-header .project-title {
+    min-width: fit-content;
+}
+
+.project-header .project-title > span {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 62px;
+}
+
+.project-header .project-subtitle {
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: #9a9a9a;
+}
+
+.project-header .project-about {
+    margin-left: 130px;
+    font-size: 20px;
+    color: #111111;
+    letter-spacing: 0.05em;
+    line-height: 24px;
+    font-weight: 400;
+    max-width: 620px;
+}
+
+.about-body .project-about {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.project-header .project-view {
+    width: fit-content;
+    color: #111111;
+    margin-top: 32px;
+    font-weight: 500;
+    padding-bottom: 2px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 2px solid black;
+}
+
+.project-mockups {
+    margin-top: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.project-mockups.studio {
+    justify-content: center;
+}
+
+.project-mockups img {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.mockup-mobile {
+    width: 208px;
+}
+
+.mockup-desktop {
+    width: 840px;
+    text-align: end;
+}
+
+.project.adobe {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project.adobe .project-header {
+    flex-direction: column;
+}
+
+
+.project.adobe .project-about {
+    margin-left: 0;
+    margin-top: 48px;
+}
+
+.project.adobe .project-about {
+    min-width: 400px;
+    max-width: 400px;
+}
+
+.project.adobe .mockup-desktop {
+    margin-top: 90px;
+    width: 1000px;
+}
+
+.project.about-me .project-header .project-about {
+    margin-left: 0;
+}
+
+.project.about-me .project-about {
+    width: calc(50% - 80px);
+    padding-right: 80px;
+    max-width: 480px;
+}
+
+.project.about-me .project-about:last-child {
+    margin-top: 60px;
+}
+
+.project.about-me .project-about:first-child {
+    margin-top: 0 !important;
+}
+
+.about-body {
+    margin-top: 48px;
+}
+
+.about-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contacts {
+    margin-top: 20px;
+    line-height: 32px;
+}
+
+
+
+@media screen and (max-height: 1000px) {
+    .scroll-to-view .arrow-svg {
+        bottom: 220px;
+        animation: slide1000 2s ease-in;
+        animation-iteration-count: infinite;
+    }
+    .scroll-to-view span {
+        bottom: 160px;
+    }
+}
+
+@media screen and (max-height: 960px) {
+    .project-header {
+        margin-top: 90px;
+    }
+    .project-mockups {
+        margin-top: 60px;
+        justify-content: start;
+    }
+    .mockup-mobile {
+        width: 190px;
+        margin-right: 120px;
+    }
+    .mockup-desktop {
+        width: 740px;
+    }
+    .project.adobe .mockup-desktop {
+        width: 860px;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .project-header {
+        margin-top: 60px;
+    }
+    .project-mockups {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .project-mockups {
+        justify-content: start;
+    }
+    .project-header {
+        justify-content: start;
+    }
+    .mockup-mobile {
+        margin-right: 90px;
+    }
+    .project-header .project-about {
+        margin-left: 0;
+    }
+    .project-title {
+        margin-right: 90px;
+    }
+    .mockup-mobile {
+        width: 160px;
+    }
+    .mockup-desktop {
+        width: 660px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .project-mockups .mockup-mobile {
+        display: none;
+    }
+    .project-header {
+        margin-top: 70px;
+    }
+    .project-header .noblesse-logo {
+        width: 208px;
+    }
+    .project-header .project-subtitle {
+        margin-top: 16px;
+        font-size: 14px;
+    }
+    .project-header .project-about {
+        font-size: 16px;
+    }
+    .project-header .project-view {
+        margin-top: 24px;
+    }
+    .project.adobe {
+        position: relative;
+        flex-direction: column;
+    }
+    .project-mockups.adobe {
+        position: absolute;
+        left: 350px;
+        bottom: -250px;
+        margin: 0;
+        justify-content: end;
+    }
+    .project.adobe .mockup-desktop {
+        margin-top: 0;
+        margin-right: -60px;
+        width: 500px;
+    }
+    .about-body {
+        margin-top: 32px;
+    }
+    .project.about-me .project-about:last-child {
+        margin-top: 40px;
+    }
+    .project.about-me .project-about {
+        padding-right: 60px;
+        max-width: calc(50% - 60px);
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .project-header {
+        margin-top: 65px;
+        flex-direction: column;
+    }
+    .project-header .project-title {
+        margin-right: 0;
+    }
+    .project-mockups {
+        margin-top: 40px;
+    }
+    .project-header .project-about {
+        margin-top: 32px;
+        font-weight: 300;
+    }
+    .project-header .project-view {
+        font-weight: 400;
+    }
+    .about-body {
+        justify-content: space-between;
+    }
+    .project.about-me .project-about:last-child {
+        margin-top: 30px;
+    }
+    .project.about-me .project-about {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 300;
+        width: 50%;
+        padding-right: 35px;
+        max-width: calc(50% - 35px);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    [data-animation-top="true"] > div {
+        animation: none;
+    }
+    [data-animation-bottom="true"] > div {
+        animation: none;
+    }
+
+    [data-animation-top="true"] {
+        animation: animationTop800 .6s ease-in;
+    }
+
+    [data-animation-bottom="true"] {
+        animation: animationBottom800 .6s ease-in;
+    }
+    [data-hidden="false"] {
+        transition: all 0.2s ease-in;
+    }
+    .project-mockups img {
+        width: 520px;
+    }
+    .preview-section {
+        margin-top: -70px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .project-mockups.adobe {
+        left: 200px;
+    }
+    .project.adobe .mockup-desktop {
+        width: 600px;
+    }
+    .project.adobe .mockup-desktop {
+        margin-right: -90px;
+    }
+}
+
+@media screen and (max-width: 730px){
+    .project.about-me .project-about:last-child {
+        margin-top: 24px;
+    }
+    .project.about-me .project-about {
+        margin-top: 24px;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .project.adobe .project-about {
+        min-width: 0;
+        width: 400px;
+        max-width: 100%;
+    }
+    .project {
+        padding: 0 20px;
+        max-width: calc(100% - 40px);
+    }
+    .project-header .project-title > span {
+        font-size: 42px;
+        line-height: 52px;
+    }
+    .project.adobe .mockup-desktop {
+        margin-right: -40px;
+    }
+    .project-mockups.adobe {
+        left: auto;
+        right: 0;
+        max-width: 100%;
+        width: 350px;
+    }
+    .preview-section .preview-title {
+        font-size: 32px;
+    }
+    .preview-section .preview-subtitle {
+        font-size: 18px;
+    }
+}
+
+
+@keyframes slide {
+    70%, 100% {
+        opacity: 0;
+        bottom: 155px;
+    }
+    0% {
+        opacity: 0;
+        bottom: 180px;
+    }
+    10% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide1000 {
+    70%, 100% {
+        opacity: 0;
+        bottom: 195px;
+    }
+    0% {
+        opacity: 0;
+        bottom: 220px;
+    }
+    10% {
+        opacity: 1;
+    }
+}
+
+@keyframes animationBottom {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        margin-top: 600px;
+    }
+}
+
+@keyframes animationTop {
+    0% {
+        opacity: 1;
+        margin-top: 0;
+    }
+    100% {
+        opacity: 0;
+        margin-top: -600px;
+    }
+}
+
+@keyframes animationBottom800 {
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes animationTop800 {
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
