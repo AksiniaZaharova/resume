@@ -1,3 +1,19 @@
+#page-1, #page-3, #page-5 {
+    background: #fff;
+}
+
+#page-3 .absolute {
+    color: #7490da;
+}
+
+#page-4 .absolute {
+    color: #ff795d;
+}
+
+#page-5 .absolute {
+    color: #cb8574;
+}
+
 html, body {
     position: relative;
     margin: 0;
@@ -20,6 +36,17 @@ div[data-hidden] {
     overflow: hidden;
 }
 
+div.current[data-hidden="false"] {
+    z-index: 2;
+}
+
+[data-hidden="false"] {
+    z-index: 1;
+}
+
+[data-hidden="false"] .project-header .project-title .absolute {
+    animation: titleOpacityChange 2s;
+}
 
 [data-hidden="true"] {
     opacity: 0 !important;
@@ -28,9 +55,6 @@ div[data-hidden] {
     z-index: 0;
 }
 
-[data-hidden="false"] {
-    z-index: 1;
-}
 
 [data-hidden="false"] img {
     display: block;
@@ -41,16 +65,37 @@ div[data-hidden] {
     display: block !important;
 }
 
-[data-hidden="false"] {
-    transition: all 0.3s linear;
+
+[data-animation-top="true"]  {
+    animation: animationTop .8s cubic-bezier(0.8, 0, 0.4, 1) 0s;
 }
 
-[data-animation-top="true"] > div {
-    animation: animationTop .8s ease-out;
+[data-animation-bottom="true"] {
+    animation: animationBottom .8s cubic-bezier(0.8, 0, 0.4, 1) 0s;
 }
 
-[data-animation-bottom="true"] > div {
-    animation: animationBottom .8s ease-out;
+#page-2, #page-4, #page-6 {
+    background: #252525;
+}
+
+#page-6 .project-header .project-title, #page-6 .project-about {
+    color: #fff;
+    font-weight: 300;
+}
+#page-6 .project-about a {
+    color: #d6d6d6;
+}
+
+#page-2 .project-header .project-about, #page-2 .project-header .project-view, #page-4 .project-header .project-about, #page-4 .project-header .project-view, #page-4 .project-header .project-title {
+    color: #ffff ;
+}
+
+#page-2 .project-header .project-view, #page-4 .project-header .project-view{
+    border-bottom: 1px solid #fff;
+}
+
+#page-2 .project-header .project-subtitle, #page-4 .project-header .project-subtitle {
+    color: #d6d6d6;
 }
 
 .scroll-to-view .arrow-svg {
@@ -108,7 +153,21 @@ div[data-hidden] {
 }
 
 .project-header .project-title {
+    position: relative;
     min-width: fit-content;
+    margin-top: -10px;
+}
+
+.project-header .project-title.noblesse {
+    margin-top: 0;
+}
+
+.project-header .project-title .absolute {
+    white-space: nowrap;
+    position: absolute;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
 }
 
 .project-header .project-title > span {
@@ -119,7 +178,7 @@ div[data-hidden] {
 }
 
 .project-header .project-subtitle {
-    margin-top: 20px;
+    margin-top: 14px;
     text-transform: uppercase;
     font-size: 18px;
     font-weight: 300;
@@ -129,11 +188,11 @@ div[data-hidden] {
 
 .project-header .project-about {
     margin-left: 130px;
-    font-size: 20px;
+    font-size: 18px;
     color: #111111;
-    letter-spacing: 0.05em;
-    line-height: 24px;
-    font-weight: 400;
+    letter-spacing: 0.03em;
+    line-height: 22px;
+    font-weight: 300;
     max-width: 620px;
 }
 
@@ -145,12 +204,12 @@ div[data-hidden] {
 .project-header .project-view {
     width: fit-content;
     color: #111111;
-    margin-top: 32px;
-    font-weight: 500;
-    padding-bottom: 2px;
+    margin-top: 24px;
+    font-weight: 400;
+    padding-bottom: 3px;
     text-decoration: none;
     display: block;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
 }
 
 .project-mockups {
@@ -364,9 +423,6 @@ div[data-hidden] {
         margin-top: 32px;
         font-weight: 300;
     }
-    .project-header .project-view {
-        font-weight: 400;
-    }
     .about-body {
         justify-content: space-between;
     }
@@ -384,23 +440,6 @@ div[data-hidden] {
 }
 
 @media screen and (max-width: 800px) {
-    [data-animation-top="true"] > div {
-        animation: none;
-    }
-    [data-animation-bottom="true"] > div {
-        animation: none;
-    }
-
-    [data-animation-top="true"] {
-        animation: animationTop800 .6s ease-in;
-    }
-
-    [data-animation-bottom="true"] {
-        animation: animationBottom800 .6s ease-in;
-    }
-    [data-hidden="false"] {
-        transition: all 0.2s ease-in;
-    }
     .project-mockups img {
         width: 520px;
     }
@@ -494,34 +533,28 @@ div[data-hidden] {
 
 @keyframes animationBottom {
     0% {
-        opacity: 1;
+        transform: translateY(0vh);
     }
     100% {
-        opacity: 0;
-        margin-top: 600px;
+        transform: translateY(100vh);
     }
 }
 
 @keyframes animationTop {
     0% {
-        opacity: 1;
-        margin-top: 0;
+        transform: translateY(0vh);
     }
     100% {
-        opacity: 0;
-        margin-top: -600px;
+        transform: translateY(-100vh);
     }
 }
 
-@keyframes animationBottom800 {
-    100% {
-        transform: translateY(100%);
+@keyframes titleOpacityChange {
+    40% {
+        width: 0;
     }
-}
-
-@keyframes animationTop800 {
     100% {
-        transform: translateY(-100%);
+        width: 100%;
     }
 }
 
