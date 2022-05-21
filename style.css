@@ -1,3 +1,14 @@
+html, body {
+    position: relative;
+    margin: 0;
+    height: 100%;
+    width: 100vw;
+    max-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
 #page-1, #page-3, #page-5 {
     background: #fff;
 }
@@ -12,17 +23,6 @@
 
 #page-5 .absolute {
     color: #cb8574;
-}
-
-html, body {
-    position: relative;
-    margin: 0;
-    height: 100vh;
-    width: 100vw;
-    max-height: 100vh;
-    font-family: 'Outfit', sans-serif;
-    max-width: 100vw;
-    overflow: hidden;
 }
 
 div[data-hidden] {
