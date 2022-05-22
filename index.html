@@ -183,10 +183,12 @@
             if(toTop) {
                 curr.setAttribute('data-animation-bottom', 'true');
                 curr.classList.add('current');
+                next.setAttribute('data-animation-prev', 'true');
                 next.setAttribute('data-hidden', 'false');
                 setTimeout(() => {
                     curr.setAttribute('data-hidden', 'true');
                     curr.removeAttribute('data-animation-bottom');
+                    next.removeAttribute('data-animation-prev');
                     curr.removeAttribute('class');
                 },  750);
             }
@@ -194,9 +196,11 @@
                 curr.setAttribute('data-animation-top', 'true');
                 curr.classList.add('current');
                 next.setAttribute('data-hidden', 'false');
+                next.setAttribute('data-animation-next', 'true');
                 setTimeout(() => {
                     curr.setAttribute('data-hidden', 'true');
                     curr.removeAttribute('data-animation-top');
+                    next.removeAttribute('data-animation-next');
                     curr.removeAttribute('class');
                 }, 750);
             }
@@ -214,11 +218,15 @@
         }
 
         function handleTouchStart(event) {
+            event.preventDefault();
+            event.stopPropagation();
             const firstTouch = getTouches(event)[0];
             yDown = firstTouch.clientY;
         }
 
         function handleTouchMove(evt) {
+            evt.preventDefault();
+            evt.stopPropagation();
             if (!yDown ) {
                 return;
             }
