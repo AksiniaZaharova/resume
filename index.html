@@ -218,15 +218,11 @@
         }
 
         function handleTouchStart(event) {
-            event.preventDefault();
-            event.stopPropagation();
             const firstTouch = getTouches(event)[0];
             yDown = firstTouch.clientY;
         }
 
         function handleTouchMove(evt) {
-            evt.preventDefault();
-            evt.stopPropagation();
             if (!yDown ) {
                 return;
             }
