@@ -15,10 +15,10 @@ function scrollEvents () {
 
     function handleScroll(event, mobile, prev) {
         scrollStatus['wheeling'] = true;
-        if (!scrollStatus['functionCall']) {
+        if (!scrollStatus['functionCall'] && event !== '') {
             const currentId = document.getElementById(`page-${currentPage}`);
 
-            if (event?.deltaY > 0 || mobile && !prev) {
+            if (event.deltaY > 0 || mobile && !prev) {
                 if (currentPage === 6) {
                     return false;
                 }
@@ -28,7 +28,7 @@ function scrollEvents () {
                     currentPage = currentPage + 1;
                 }
             }
-            if (event?.deltaY < 0 || mobile && prev) {
+            if (event.deltaY < 0 || mobile && prev) {
                 if (currentPage === 1) {
                     return false;
                 }
@@ -96,9 +96,9 @@ function scrollEvents () {
         let yDiff = yDown - yUp;
 
         if ( yDiff > 0 ) {
-            handleScroll('', true, false)
+            handleScroll(false, true, false)
         } else {
-            handleScroll('', true, true)
+            handleScroll(false, true, true)
         }
         yDown = null;
     }
