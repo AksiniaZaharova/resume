@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+function scrollEvents () {
     document.addEventListener('click', () => console.log('hello world'))
     document.addEventListener('wheel', handleScroll);
     document.addEventListener('touchstart', handleTouchStart);
@@ -114,4 +114,10 @@ window.addEventListener('DOMContentLoaded', () => {
             el.append(mockups[index]);
         })
     }
-})
+}
+
+if (document.readyState === 'loading') {  // Загрузка ещё не закончилась
+    document.addEventListener('DOMContentLoaded', scrollEvents);
+} else {
+    scrollEvents();
+}
