@@ -66,12 +66,20 @@ div.current[data-hidden="false"] {
 }
 
 
-[data-animation-top="true"]  {
+[data-animation-top="true"] {
     animation: animationTop .8s cubic-bezier(0.8, 0, 0.4, 1) 0s;
 }
 
 [data-animation-bottom="true"] {
     animation: animationBottom .8s cubic-bezier(0.8, 0, 0.4, 1) 0s;
+}
+
+[data-animation-next="true"] {
+    animation: animationNext .8s cubic-bezier(0.8, 0, 0.4, 1) 0s;
+}
+
+[data-animation-prev="true"] {
+    animation: animationPrev .8s cubic-bezier(0.8, 0, 0.4, 1) 0s;
 }
 
 #page-2, #page-4, #page-6 {
@@ -338,10 +346,10 @@ div.current[data-hidden="false"] {
 
 @media screen and (max-width: 1366px) {
     .project-mockups {
-        justify-content: start;
+        justify-content: center;
     }
     .project-header {
-        justify-content: start;
+        justify-content: center;
     }
     .mockup-mobile {
         margin-right: 90px;
@@ -363,6 +371,12 @@ div.current[data-hidden="false"] {
 @media screen and (max-width: 1100px) {
     .project-mockups .mockup-mobile {
         display: none;
+    }
+    .project-mockups {
+        justify-content: start;
+    }
+    .project-header {
+        justify-content: start;
     }
     .project-header {
         margin-top: 70px;
@@ -528,6 +542,24 @@ div.current[data-hidden="false"] {
     }
     10% {
         opacity: 1;
+    }
+}
+
+@keyframes animationNext {
+    0% {
+        transform: translateY(100vh);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes animationPrev {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
 
