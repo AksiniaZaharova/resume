@@ -7,15 +7,15 @@ function scrollEvents () {
     let currentPage = 1;
 
     let scrollStatus = {
-        wheeling: false,
-        functionCall: false
+        'wheeling': false,
+        'functionCall': false
     };
 
     let scrollTimer = false;
 
     function handleScroll(event, mobile, prev) {
-        scrollStatus.wheeling = true;
-        if (!scrollStatus?.functionCall) {
+        scrollStatus['wheeling'] = true;
+        if (!scrollStatus['functionCall']) {
             const currentId = document.getElementById(`page-${currentPage}`);
 
             if (event?.deltaY > 0 || mobile && !prev) {
@@ -38,12 +38,12 @@ function scrollEvents () {
                     currentPage = currentPage - 1;
                 }
             }
-            scrollStatus.functionCall = true;
+            scrollStatus['functionCall'] = true;
         }
         window.clearInterval(scrollTimer);
         scrollTimer = window.setTimeout(function() {
-            scrollStatus.wheeling = false;
-            scrollStatus.functionCall = false;
+            scrollStatus['wheeling'] = false;
+            scrollStatus['functionCall'] = false;
         }, 50);
     }
 
